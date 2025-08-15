@@ -11,5 +11,6 @@ int main()
     else if (n % 5 != 0)
     {
         cout << (n / 5 + 1) << endl;
+        
     }
 }
