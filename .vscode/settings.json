@@ -62,6 +62,7 @@
     "deque": "cpp",
     "list": "cpp",
     "vector": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "ostream": "cpp"
   }
 }
