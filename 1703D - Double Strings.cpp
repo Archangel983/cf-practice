@@ -26,14 +26,17 @@ int main()
             {
                 string left = a[i].substr(0, j);
                 string right = a[i].substr(j);
-                if(st.count(left) && st.count(right)){
-                    ok=true;
+                if (st.count(left) && st.count(right))
+                {
+                    ok = true;
                     break;
                 }
             }
-            if(ok) res.push_back('1');
-            else res.push_back('0');    
+            if (ok)
+                res.push_back('1');
+            else
+                res.push_back('0');
         }
-        cout<<res<<"\n";
+        cout << res << "\n";
     }
 }

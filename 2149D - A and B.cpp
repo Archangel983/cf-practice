@@ -12,36 +12,44 @@ int main()
         int n;
         string s;
         cin >> n >> s;
-        int a = 0, b = 0;
-        for (int i = 0; i < n;)
+        vector<int> posa, posb;
+        for (int i = 0; i < n; i++)
         {
             if (s[i] == 'a')
             {
-                a++;
-                while (i < n && s[i] == 'a')
-                    i++;
+                posa.push_back(i);
             }
-            else
-            {
-                i++;
-            }
-        }
-        for (int i = 0; i < n;)
-        {
             if (s[i] == 'b')
             {
-                b++;
-                while (i < n && s[i] == 'b')
-                    i++;
-            }
-            else
-            {
-                i++;
+                posb.push_back(i);
             }
         }
-        int ans = max(0, min(a, b) - 1);
-        cout << ans << "\n";
+        if (posa.empty() || posb.empty())
+        {
+            cout << 0 << "\n";
+            continue;
+        }
+        for (int i = 0; i < posa.size(); i++)
+        {
+            posa[i] -= i;
+        }
+        for (int i = 0; i < posb.size(); i++)
+        {
+            posb[i] -= i;
+        }
+        sort(posa.begin(), posa.end());
+        sort(posb.begin(), posb.end());
+        int mediana = posa[posa.size() / 2];
+        int medianb = posb[posb.size() / 2];
+        ll costa = 0, costb = 0;
+        for (int i = 0; i < posa.size(); i++)
+        {
+            costa += (abs(posa[i] - mediana));
+        }
+        for (int i = 0; i < posb.size(); i++)
+        {
+            costb += (abs(posb[i] - medianb));
+        }
+        cout << min(costa, costb) << "\n";
     }
-
-    return 0;
 }
